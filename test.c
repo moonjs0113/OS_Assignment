@@ -4,6 +4,6 @@
 
 int
 main(int argc, char **argv) {
-    cprintf("%s\n", argv[1])
+    printf("%s\n", argv[1]);
     hello(argv[1]);
 }
