@@ -89,3 +89,11 @@ sys_uptime(void)
   release(&tickslock);
   return xticks;
 }
+
+int
+sys_hello(void)
+{
+  char* str = "asdfasdf"
+  hello(str)
+  return 0;
+}
