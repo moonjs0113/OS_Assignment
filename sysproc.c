@@ -93,7 +93,7 @@ sys_uptime(void)
 int
 sys_hello(void)
 {
-  char* str = "asdfasdf"
-  hello(str)
+  char* str = "asdfasdf";
+  hello(str);
   return 0;
 }
