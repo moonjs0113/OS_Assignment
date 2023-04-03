@@ -4,5 +4,6 @@
 
 int
 main(int argc, char **argv) {
-    hello();
+    int i = hello();
+    return 0;
 }
