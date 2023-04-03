@@ -99,5 +99,6 @@ sys_hello(void)
     return -1;
   }
 
+  hello(path);
   return 0;
 }
