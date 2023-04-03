@@ -535,5 +535,5 @@ procdump(void)
 
 void
 hello(char* argv) {
-  printf("%s", argv);
+  cprintf("%s", argv);
 }
