@@ -532,8 +532,3 @@ procdump(void)
     cprintf("\n");
   }
 }
-
-// void
-// hello(char* string) {
-//   cprintf("Hello %s\n", string);
-// }
