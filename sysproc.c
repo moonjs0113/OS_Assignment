@@ -101,7 +101,6 @@ sys_hello(void)
     return -1;
   }
   // end_op();
-  // hello(path);
-  cprintf("Hello %s System Call\n", path);
+  hello(path);
   return 0;
 }
