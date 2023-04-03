@@ -99,7 +99,7 @@ sys_hello(void)
     // end_op();
     return -1;
   }
-  cprintf("Hello %s\n", path);
+  cprintf("Hello %s System Call \n\n\n", path);
   // end_op();
   return 0;
 }
