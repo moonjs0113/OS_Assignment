@@ -95,12 +95,12 @@ sys_hello(void)
 {
   char *path;
 
-  begin_op();
+  // begin_op();
   if(argstr(0, &path) < 0) {
-    end_op();
+    // end_op();
     return -1;
   }
   hello(path);
-  end_op();
+  // end_op();
   return 0;
 }
