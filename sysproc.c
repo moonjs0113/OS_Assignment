@@ -93,7 +93,13 @@ sys_uptime(void)
 int
 sys_hello(void)
 {
-  char* str = "asdfasdf";
-  hello(str);
+  char *path;
+  begin_op();
+  if(argstr(0, &path) < 0) {
+    end_op();
+    return -1;
+  }
+  cprintf("Hello %s", path);
+  end_op();
   return 0;
 }
