@@ -532,3 +532,9 @@ procdump(void)
     cprintf("\n");
   }
 }
+
+void
+hello(char *string)
+{
+  cprintf("Hello %s System Call \n\n\n", string);
+}
