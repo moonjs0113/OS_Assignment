@@ -99,6 +99,5 @@ sys_hello(void)
     return -1;
   }
   cprintf("Hello %s\n", path);
-  // hello(path);
   return 0;
 }
