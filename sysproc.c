@@ -98,7 +98,7 @@ sys_hello(void)
   if(argstr(0, &path) < 0) {
     return -1;
   }
-  cprintf("Hello %s\n", string);
+  cprintf("Hello %s\n", path);
   // hello(path);
   return 0;
 }
