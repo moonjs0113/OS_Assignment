@@ -1,3 +1,116 @@
+# Operation System Assignment
+
+## 0. Notes
+- Run QEMU in CLI
+
+  give `-nographic` option in commend
+
+  ``` shell
+  $ make qemu
+  $ qemu-system-i386 -serial mon:stdio -drive file=fs.img,index=1,media=disk,format=raw -drive file=xv6.img,index=0,media=disk,format=raw -smp 2 -m 512 -nographic
+  ```
+
+- Exit QEMU in CLI
+
+  `ctrl + A` and `X`
+
+## 1. Add System Call
+### 1-1 Requirements
+- Add a new test system call `hello(char *string)`
+- The name of test app is `test`
+- Example
+  ``` shell
+  $ test SystemCall // Input
+  Hello SystemCall //Output
+  ```
+
+### 1-2 Solve
+Step 1 - Adding a System Call Definition in SysCall
+``` C
+// usys.S
+...
+SYSCALL(hello)
+```
+
+``` c
+// syscall.h
+...
+#define SYS_hello 22
+```
+
+``` c
+// syscall.c
+...
+extern int sys_hello(void);
+
+static int (*syscalls[])(void) = {
+...,
+[SYS_hello] sys_hello,
+};
+```
+
+Step 2 - Adding a System Call Definition in User Header
+``` C
+// user.h
+...
+// system calls
+...
+void hello(char* string);
+```
+
+Step 3 - Adding a System Call Function
+``` C
+// sysproc.c
+...
+int
+sys_hello(void)
+{
+  char *path;
+
+  if(argstr(0, &path) < 0) {
+    return -1;
+  }
+  cprintf("Hello %s\n", path);
+  return 0;
+}
+```
+
+Step 4 - `test.c`
+``` C
+// test.c
+include "types.h"
+#include "stat.h"
+#include "user.h"
+
+int
+main(int argc, char **argv) {
+    hello(argv[1]);
+    exit();
+}
+```
+
+Step 5 - Edit Makefile
+``` C
+// Makefile
+...
+UPROGS=\
+    ...
+    _test\
+...
+EXTRA=\
+    ...
+	printf.c umalloc.c test.c\ // Add test.c
+```
+
+
+## 2. (Unassigned)
+### Requirements
+- 
+### Solve
+- 
+
+---
+# Origin README
 NOTE: we have stopped maintaining the x86 version of xv6, and switched
 our efforts to the RISC-V version
 (https://github.com/mit-pdos/xv6-riscv.git)
@@ -49,3 +162,4 @@ will need to install a cross-compiler gcc suite capable of producing
 x86 ELF binaries (see https://pdos.csail.mit.edu/6.828/).
 Then run "make TOOLPREFIX=i386-jos-elf-". Now install the QEMU PC
 simulator and run "make qemu".
+

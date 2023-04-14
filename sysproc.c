@@ -89,3 +89,15 @@ sys_uptime(void)
   release(&tickslock);
   return xticks;
 }
+
+int
+sys_hello(void)
+{
+  char *path;
+
+  if(argstr(0, &path) < 0) {
+    return -1;
+  }
+  cprintf("Hello %s\n", path);
+  return 0;
+}
