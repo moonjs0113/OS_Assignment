@@ -327,7 +327,7 @@ scheduler(void)
   struct proc *p;
   struct cpu *c = mycpu();
   c->proc = 0;
-  
+  cprintf("Call Scheduler\n");
   for(;;){
     // Enable interrupts on this processor.
     sti();
@@ -339,7 +339,7 @@ scheduler(void)
         continue;
       
       ptable.totalTickets += p->tickets;
-      cprintf("TotalTickets %d\n", ptable.totalTickets);
+      // cprintf("TotalTickets %d\n", ptable.totalTickets);
       // Switch to chosen process.  It is the process's job
       // to release ptable.lock and then reacquire it
       // before jumping back to us.
