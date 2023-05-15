@@ -10,6 +10,7 @@
     "spinlock.h": "c",
     "proc.h": "c",
     "x86.h": "c",
-    "memlayout.h": "c"
+    "memlayout.h": "c",
+    "stat.h": "c"
   }
 }
