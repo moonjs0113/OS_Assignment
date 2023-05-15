@@ -3,6 +3,7 @@
     "types.h": "c",
     "rand.h": "c",
     "__tuple": "c",
-    "array": "c"
+    "array": "c",
+    "user.h": "c"
   }
 }

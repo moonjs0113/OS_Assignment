@@ -31,4 +31,5 @@ SYSCALL(sleep)
 SYSCALL(uptime)
 SYSCALL(hello)
 SYSCALL(gettickets)
+SYSCALL(settickets)
 

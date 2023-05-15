@@ -6,6 +6,7 @@
 #include "memlayout.h"
 #include "mmu.h"
 #include "proc.h"
+#include "rand.h"
 
 int
 sys_fork(void)
@@ -105,5 +106,15 @@ sys_hello(void)
 int
 sys_gettickets(void)
 {
+  return myproc()->tickets;
+}
+
+int
+settickets(void)
+{
+  int n;
+  if(argint(0, &n) < 0)
+    return -1;
+  myproc()->tickets = n;
   return myproc()->tickets;
 }

@@ -11,6 +11,7 @@ main(int argc, char **argv) {
   printf(1, "Lottery Test Start\n");
   p = fork();
   if (p != 0) {
+    settickets(rand());
     printf(1, "Parent Process ID: %d\n", getpid());
     printf(1, "Parent Process Tickets: %d\n", gettickets());
   }
@@ -28,6 +29,7 @@ exit_child(int pid) {
       return;
     }
   } else {
+    settickets(rand());
     printf(1, "Child Process ID: %d\n", getpid());
     printf(1, "Child Process Tickets: %d\n", gettickets());
     printf(1, "Child Process Exit\n");
