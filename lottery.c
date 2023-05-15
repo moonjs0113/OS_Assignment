@@ -23,7 +23,7 @@ exit_child(int pid) {
       return;
     }
   } else {
-    printf("Child Process Exit\n");
+    printf(1, "Child Process Exit\n");
     exit();
   }
 }
