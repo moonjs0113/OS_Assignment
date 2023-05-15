@@ -1,6 +1,7 @@
 #include "types.h"
 #include "stat.h"
 #include "user.h"
+#include "rand.h"
 
 void exit_child();
 
@@ -14,6 +15,7 @@ main(int argc, char **argv) {
     printf(1, "Parent Process Tickets: %d\n", gettickets());
   }
   exit_child(p);
+  printf(1, "Rand: %d\n", rand());
   printf(1, "Parent Process Exit\n");
   exit();
 }
