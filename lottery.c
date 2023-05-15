@@ -2,6 +2,8 @@
 #include "stat.h"
 #include "user.h"
 
+void exit_child();
+
 int
 main(int argc, char **argv) {
   int p;
