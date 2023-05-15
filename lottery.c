@@ -3,20 +3,21 @@
 #include "user.h"
 #include "rand.h"
 
-void exit_child();
-
+void exit_child(int);
+  
 int
 main(int argc, char **argv) {
   int p;
   printf(1, "Lottery Test Start\n");
   p = fork();
   if (p != 0) {
-    settickets(rand());
+    // settickets(rand());
+    settickets(123);
     printf(1, "Parent Process ID: %d\n", getpid());
     printf(1, "Parent Process Tickets: %d\n", gettickets());
   }
   exit_child(p);
-  printf(1, "Rand: %d\n", rand());
+  // printf(1, "Rand: %d\n", rand());
   printf(1, "Parent Process Exit\n");
   exit();
 }
@@ -29,7 +30,8 @@ exit_child(int pid) {
       return;
     }
   } else {
-    settickets(rand());
+    // settickets(rand());
+    settickets(456);
     printf(1, "Child Process ID: %d\n", getpid());
     printf(1, "Child Process Tickets: %d\n", gettickets());
     printf(1, "Child Process Exit\n");
