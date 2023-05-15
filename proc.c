@@ -10,6 +10,7 @@
 struct {
   struct spinlock lock;
   struct proc proc[NPROC];
+  int totalTickets;
 } ptable;
 
 static struct proc *initproc;
@@ -336,7 +337,9 @@ scheduler(void)
     for(p = ptable.proc; p < &ptable.proc[NPROC]; p++){
       if(p->state != RUNNABLE)
         continue;
-
+      
+      ptable.totalTickets += p->tickets;
+      printf(1, "TotalTickets %d\n", ptable.totalTickets);
       // Switch to chosen process.  It is the process's job
       // to release ptable.lock and then reacquire it
       // before jumping back to us.

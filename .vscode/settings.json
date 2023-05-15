@@ -4,6 +4,12 @@
     "rand.h": "c",
     "__tuple": "c",
     "array": "c",
-    "user.h": "c"
+    "user.h": "c",
+    "__config": "c",
+    "ostream": "c",
+    "spinlock.h": "c",
+    "proc.h": "c",
+    "x86.h": "c",
+    "memlayout.h": "c"
   }
 }
