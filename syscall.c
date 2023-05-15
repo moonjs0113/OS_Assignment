@@ -105,7 +105,7 @@ extern int sys_write(void);
 extern int sys_uptime(void);
 extern int sys_hello(void);
 extern int sys_gettickets(void);
-extern int sys_settickets(int);
+extern int sys_settickets(void);
 
 static int (*syscalls[])(void) = {
 [SYS_fork]    sys_fork,
