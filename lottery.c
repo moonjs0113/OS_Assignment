@@ -9,9 +9,10 @@ main(int argc, char **argv) {
   int p;
   printf(1, "Lottery Test Start\n");
   p = fork();
-  if (p != 0)
+  if (p != 0) {
     printf(1, "Parent Process ID: %d\n", getpid());
     printf(1, "Parent Process Tickets: %d\n", gettickets());
+  }
   exit_child(p);
   printf(1, "Parent Process Exit\n");
   exit();
