@@ -78,7 +78,7 @@ sys_hello(void)
 Step 4 - `test.c`
 ``` C
 // test.c
-include "types.h"
+#include "types.h"
 #include "stat.h"
 #include "user.h"
 
