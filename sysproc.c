@@ -101,3 +101,9 @@ sys_hello(void)
   cprintf("Hello %s\n", path);
   return 0;
 }
+
+int
+sys_gettickets(void)
+{
+  return myproc()->tickets;
+}
