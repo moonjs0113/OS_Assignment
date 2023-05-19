@@ -28,11 +28,10 @@ main(int argc, char **argv) {
 void
 exit_child(int pid) {
   if(pid){
+    printf(1, "Parent Process Wait Child Process\n");
     if(wait() != pid){
       printf(1, "wait wrong pid\n");
       return;
-    } else {
-      printf(1, "Parent Process Wait Child Process\n");
     }
   } else {
     // printf(1, "Child Process ID: %d\n", getpid());
