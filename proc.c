@@ -341,7 +341,9 @@ scheduler(void)
         cprintf("Rand(): %d\n", rand());
       }
       if(p->state != RUNNABLE) {
-        cprintf("p(pid: %d)->state != RUNNABLE\n", p->pid);
+        if (p->pid != 0) {
+          cprintf("p(pid: %d)->state != RUNNABLE\n", p->pid);
+        }
         continue;
       }
 
