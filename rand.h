@@ -2,6 +2,6 @@
 int index = 0;
 // unsigned long rand_array[RAND_SIZE] = {12, 98, 34, 76, 55};
 // unsigned long rand_array[RAND_SIZE] = {123, 456, 123, 456};
-unsigned long rand_array[RAND_SIZE] = {120, 340, 560, 780};
+unsigned long rand_array[RAND_SIZE] = {220, 340, 560, 780};
 
 int rand(void);
