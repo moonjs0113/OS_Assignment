@@ -337,13 +337,7 @@ scheduler(void)
     // Loop over process table looking for process to run.
     acquire(&ptable.lock);
     for(p = ptable.proc; p < &ptable.proc[NPROC]; p++){
-      // if (p->tickets > 10) {
-      //   cprintf("Rand(): %d\n", rand());
-      // }
       if(p->state != RUNNABLE) {
-        if (p->tickets > 10) {
-          cprintf("p(pid: %d)->state != RUNNABLE, %d\n", p->pid, p->tickets);
-        }
         continue;
       }
 
@@ -360,21 +354,7 @@ scheduler(void)
           randNum = rand();
           cprintf("winner p(pid: %d)\n", p->pid);
         }
-        //  else {
-        //   
-        
-        //   cprintf("randNum: %d\n", randNum);
-        // }
       }
-      // if (p->tickets != 10 && p->tickets != randNum) {
-        
-      //   cprintf("scheduler %d\n", p->tickets);
-      //   continue;
-      // }
-      // if (p->tickets > 10) {
-      //   cprintf("p(pid: %d)->state == RUNNABLE\n", p->pid);
-      // }
-      
       // cprintf("TotalTickets %d\n", ptable.totalTickets);
       // Switch to chosen process.  It is the process's job
       // to release ptable.lock and then reacquire it
