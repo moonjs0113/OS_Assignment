@@ -342,7 +342,7 @@ scheduler(void)
       }
 
       // 테스트 코드일때만 티켓값을 더함
-      if (p->tickets > 2) { 
+      if (p->pid > 2) { 
         // cprintf("p(pid: %d)\n", p->pid);
         if (ptable.totalTickets < randNum) {
           ptable.totalTickets += p->tickets;
