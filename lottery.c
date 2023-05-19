@@ -6,7 +6,7 @@ void exit_child(int);
   
 int
 main(int argc, char **argv) {
-  int p1
+  int p1;
   int p2;
   printf(1, "Lottery Test Start\n");
   settickets(100);
