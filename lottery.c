@@ -18,8 +18,8 @@ main(int argc, char **argv) {
   } else {
     printf(1, "Child - p: %d\n", p);
     settickets(456);
-    exit_child(p);
   }
+  exit_child(p);
   // printf(1, "Rand: %d\n", rand());
   printf(1, "Parent Process Exit\n");
   exit();
