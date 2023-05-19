@@ -351,14 +351,15 @@ scheduler(void)
         // cprintf("p(pid: %d)\n", p->pid);
         if (ptable.totalTickets < randNum) {
           ptable.totalTickets += p->tickets;
-          // cprintf("continue p(pid: %d)\n", p->pid);
+          cprintf("ptable.totalTickets: %d\n", ptable.totalTickets);
           continue;
         } else {
           ptable.totalTickets = 0;
+          cprintf("winner p(pid: %d)\n", p->pid);
         }
         //  else {
-        //   cprintf("else p(pid: %d)\n", p->pid);
-        //   cprintf("ptable.totalTickets: %d\n", ptable.totalTickets);
+        //   
+        
         //   cprintf("randNum: %d\n", randNum);
         // }
       }
