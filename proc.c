@@ -331,18 +331,20 @@ scheduler(void)
   cprintf("Call Scheduler\n");
   for(;;){
     // Enable interrupts on this processor.
+    cprintf("Enable interrupts on this processor\n");
     sti();
-
+    if (p->tickets > 10) {
+      cprintf("Rand(): %d\n", rand());
+    }
     // Loop over process table looking for process to run.
     acquire(&ptable.lock);
     for(p = ptable.proc; p < &ptable.proc[NPROC]; p++){
-      if(p->state != RUNNABLE)
+      if(p->state != RUNNABLE) {
+        cprintf("p(pid: %d)->state != RUNNABLE\n", p->pid);
         continue;
-      
-      if (p->tickets > 10) {
-        cprintf("Rand(): %d\n", rand());
       }
 
+      cprintf("p(pid: %d)->state == RUNNABLE\n", p->pid);
       ptable.totalTickets += p->tickets;
       // cprintf("TotalTickets %d\n", ptable.totalTickets);
       // Switch to chosen process.  It is the process's job
