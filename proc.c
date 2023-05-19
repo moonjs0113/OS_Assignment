@@ -345,9 +345,9 @@ scheduler(void)
         // }
         continue;
       }
-      if (p->tickets > 10) {
-        cprintf("p(pid: %d)->state == RUNNABLE\n", p->pid);
-      }
+      // if (p->tickets > 10) {
+      //   cprintf("p(pid: %d)->state == RUNNABLE\n", p->pid);
+      // }
       ptable.totalTickets += p->tickets;
       // cprintf("TotalTickets %d\n", ptable.totalTickets);
       // Switch to chosen process.  It is the process's job
