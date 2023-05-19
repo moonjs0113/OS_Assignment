@@ -11,6 +11,11 @@
     "proc.h": "c",
     "x86.h": "c",
     "memlayout.h": "c",
-    "stat.h": "c"
+    "stat.h": "c",
+    "param.h": "c",
+    "fcntl.h": "c",
+    "file.h": "c",
+    "date.h": "c",
+    "defs.h": "c"
   }
 }
