@@ -11,7 +11,7 @@
 struct {
   struct spinlock lock;
   struct proc proc[NPROC];
-  int totalTickets = 0;
+  int totalTickets;
 } ptable;
 
 static struct proc *initproc;
@@ -329,7 +329,7 @@ scheduler(void)
   struct cpu *c = mycpu();
   c->proc = 0;
   int randNum = rand();
-  cprintf("Call Scheduler\n");
+  cprintf("Call Scheduler %d\n", ptable.totalTickets);
   for(;;){
     // Enable interrupts on this processor.
     sti();
