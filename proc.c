@@ -342,15 +342,17 @@ scheduler(void)
       }
 
       // 테스트 코드일때만 티켓값을 더함
-      if (p->tickets > 99) { 
+      if (p->tickets > 2) { 
         // cprintf("p(pid: %d)\n", p->pid);
         if (ptable.totalTickets < randNum) {
-          // cprintf("totalTickets: %d, now try pid: %d\n", ptable.totalTickets, p->pid);
           ptable.totalTickets += p->tickets;
           continue;
         }
-        ptable.totalTickets = 0;
-        randNum = rand();
+          cprintf("winner! totalTickets: %d, randNum: %d\n", ptable.totalTickets, randNum);
+          ptable.totalTickets = 0;
+          randNum = rand();
+          cprintf("winner! p(pid: %d)\n", p->pid);
+        }
       }
       // cprintf("TotalTickets %d\n", ptable.totalTickets);
       // Switch to chosen process.  It is the process's job
