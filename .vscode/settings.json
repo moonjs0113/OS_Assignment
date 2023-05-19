@@ -16,6 +16,8 @@
     "fcntl.h": "c",
     "file.h": "c",
     "date.h": "c",
-    "defs.h": "c"
+    "defs.h": "c",
+    "chrono": "c",
+    "variant": "c"
   }
 }
