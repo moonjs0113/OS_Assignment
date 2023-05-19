@@ -16,10 +16,11 @@ main(int argc, char **argv) {
     printf(1, "Parent Process Tickets: %d\n", gettickets());
   } else {
     settickets(456);
-    exit_child(p);
+    
     exit();
   }
   // printf(1, "Rand: %d\n", rand());
+  exit_child(p);
   printf(1, "Parent Process Exit\n");
   exit();
 }
@@ -30,6 +31,8 @@ exit_child(int pid) {
     if(wait() != pid){
       printf(1, "wait wrong pid\n");
       return;
+    } else {
+      printf(1, "Parent Process Wait Child Process\n");
     }
   } else {
     printf(1, "Child Process ID: %d\n", getpid());
