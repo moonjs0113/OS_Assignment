@@ -11,7 +11,7 @@
 struct {
   struct spinlock lock;
   struct proc proc[NPROC];
-  int totalTickets;
+  int totalTickets = 0;
 } ptable;
 
 static struct proc *initproc;
