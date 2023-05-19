@@ -340,9 +340,9 @@ scheduler(void)
         cprintf("Rand(): %d\n", rand());
       }
       if(p->state != RUNNABLE) {
-        if (p->tickets > 10) {
-          cprintf("p(pid: %d)->state != RUNNABLE\n", p->pid);
-        }
+        // if (p->tickets > 10) {
+          // cprintf("p(pid: %d)->state != RUNNABLE\n", p->pid);
+        // }
         continue;
       }
       if (p->tickets > 10) {
