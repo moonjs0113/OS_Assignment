@@ -353,6 +353,8 @@ scheduler(void)
           ptable.totalTickets += p->tickets;
           // cprintf("continue p(pid: %d)\n", p->pid);
           continue;
+        } else {
+          ptable.totalTickets = 0
         }
         //  else {
         //   cprintf("else p(pid: %d)\n", p->pid);
