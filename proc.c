@@ -348,11 +348,10 @@ scheduler(void)
           ptable.totalTickets += p->tickets;
           continue;
         }
-        cprintf("winner! totalTickets: %d, randNum: %d\n", ptable.totalTickets, randNum);
+        // cprintf("winner! totalTickets: %d, randNum: %d\n", ptable.totalTickets, randNum);
         ptable.totalTickets = 0;
         randNum = rand();
-        cprintf("winner! p(pid: %d)\n", p->pid);  
-        
+        // cprintf("winner! p(pid: %d)\n", p->pid);  
       }
       // cprintf("TotalTickets %d\n", ptable.totalTickets);
       // Switch to chosen process.  It is the process's job
