@@ -354,7 +354,7 @@ scheduler(void)
           // cprintf("continue p(pid: %d)\n", p->pid);
           continue;
         } else {
-          ptable.totalTickets = 0
+          ptable.totalTickets = 0;
         }
         //  else {
         //   cprintf("else p(pid: %d)\n", p->pid);
