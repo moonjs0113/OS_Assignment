@@ -348,16 +348,17 @@ scheduler(void)
       }
       // 테스트 코드일때만 티켓값을 더함
       if (p->tickets > 99) { 
-        cprintf("p(pid: %d)\n", p->pid);
+        // cprintf("p(pid: %d)\n", p->pid);
         if (ptable.totalTickets < randNum) {
           ptable.totalTickets += p->tickets;
-          cprintf("continue p(pid: %d)\n", p->pid);
+          // cprintf("continue p(pid: %d)\n", p->pid);
           continue;
-        } else {
-          cprintf("else p(pid: %d)\n", p->pid);
-          cprintf("ptable.totalTickets: %d\n", ptable.totalTickets);
-          cprintf("randNum: %d\n", randNum);
         }
+        //  else {
+        //   cprintf("else p(pid: %d)\n", p->pid);
+        //   cprintf("ptable.totalTickets: %d\n", ptable.totalTickets);
+        //   cprintf("randNum: %d\n", randNum);
+        // }
       }
       // if (p->tickets != 10 && p->tickets != randNum) {
         
