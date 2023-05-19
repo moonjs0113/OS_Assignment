@@ -342,7 +342,7 @@ scheduler(void)
       // }
       if(p->state != RUNNABLE) {
         if (p->tickets > 10) {
-          cprintf("p(pid: %d)->state != RUNNABLE\n", p->pid);
+          cprintf("p(pid: %d)->state != RUNNABLE, %d\n", p->pid, p->tickets);
         }
         continue;
       }
