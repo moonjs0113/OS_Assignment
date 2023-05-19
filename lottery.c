@@ -16,8 +16,8 @@ main(int argc, char **argv) {
     printf(1, "Parent Process Tickets: %d\n", gettickets());
   } else {
     settickets(456);
+    exit_child(p);
   }
-  // exit_child(p);
   // printf(1, "Rand: %d\n", rand());
   printf(1, "Parent Process Exit\n");
   exit();
@@ -31,7 +31,7 @@ exit_child(int pid) {
       return;
     }
   } else {
-    // settickets(rand());
+    settickets(rand());
     printf(1, "Child Process ID: %d\n", getpid());
     printf(1, "Child Process Tickets: %d\n", gettickets());
     printf(1, "Child Process Exit\n");
