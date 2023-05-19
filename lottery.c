@@ -1,7 +1,7 @@
 #include "types.h"
 #include "stat.h"
 #include "user.h"
-#include "rand.h"
+#include "rand.c"
 
 void exit_child(int);
   
