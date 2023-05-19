@@ -1,5 +1,3 @@
-#include "types.h"
-#include "stat.h"
 #include "rand.h"
 
 int rand(void) {
