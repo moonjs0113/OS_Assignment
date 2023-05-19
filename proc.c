@@ -349,7 +349,7 @@ scheduler(void)
 
       if (p->tickets != 10 && p->tickets != randNum) {
         randNum = rand();
-        cprint("scheduler %d\n", p->tickets);
+        cprintf("scheduler %d\n", p->tickets);
         continue;
       }
       // if (p->tickets > 10) {
