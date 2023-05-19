@@ -12,11 +12,11 @@ main(int argc, char **argv) {
   p = fork(); 
   if (p != 0) {
     // settickets(rand());
-    printf(1, "Parent - p: %d\n", p);
-    printf(1, "Parent Process ID: %d\n", getpid());
-    printf(1, "Parent Process Tickets: %d\n", gettickets());
+    // printf(1, "Parent - p: %d\n", p);
+    // printf(1, "Parent Process ID: %d\n", getpid());
+    // printf(1, "Parent Process Tickets: %d\n", gettickets());
   } else {
-    printf(1, "Child - p: %d\n", p);
+    // printf(1, "Child - p: %d\n", p);
     settickets(100);
   }
   exit_child(p);
@@ -35,8 +35,8 @@ exit_child(int pid) {
       printf(1, "Parent Process Wait Child Process\n");
     }
   } else {
-    printf(1, "Child Process ID: %d\n", getpid());
-    printf(1, "Child Process Tickets: %d\n", gettickets());
+    // printf(1, "Child Process ID: %d\n", getpid());
+    // printf(1, "Child Process Tickets: %d\n", gettickets());
     printf(1, "Child Process Exit\n");
   }
 }
