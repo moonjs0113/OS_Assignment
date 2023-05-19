@@ -341,17 +341,18 @@ scheduler(void)
       //   cprintf("Rand(): %d\n", rand());
       // }
       if(p->state != RUNNABLE) {
-        // if (p->tickets > 10) {
-          // cprintf("p(pid: %d)->state != RUNNABLE\n", p->pid);
-        // }
+        if (p->tickets > 10) {
+          cprintf("p(pid: %d)->state != RUNNABLE\n", p->pid);
+        }
         continue;
       }
+
       // 테스트 코드일때만 티켓값을 더함
       if (p->tickets > 99) { 
         // cprintf("p(pid: %d)\n", p->pid);
         if (ptable.totalTickets < randNum) {
-          ptable.totalTickets += p->tickets;
           cprintf("totalTickets: %d, now try pid: %d\n", ptable.totalTickets, p->pid);
+          ptable.totalTickets += p->tickets;
           continue;
         } else {
           cprintf("winner! totalTickets: %d, randNum: %d\n", ptable.totalTickets, randNum);
