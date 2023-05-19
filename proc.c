@@ -328,6 +328,7 @@ scheduler(void)
   struct proc *p;
   struct cpu *c = mycpu();
   c->proc = 0;
+  int randNum = rand();
   cprintf("Call Scheduler\n");
   for(;;){
     // Enable interrupts on this processor.
@@ -343,6 +344,11 @@ scheduler(void)
         // if (p->tickets > 10) {
           // cprintf("p(pid: %d)->state != RUNNABLE\n", p->pid);
         // }
+        continue;
+      }
+
+      if (p->tickets != 10 && p->tickets != randNum) {
+        randNum = rand();
         continue;
       }
       // if (p->tickets > 10) {
