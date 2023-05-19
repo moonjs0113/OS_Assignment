@@ -8,7 +8,7 @@ int
 main(int argc, char **argv) {
   int p;
   printf(1, "Lottery Test Start\n");
-  settickets(456);
+  settickets(100);
   p = fork(); 
   if (p != 0) {
     // settickets(rand());
@@ -17,7 +17,7 @@ main(int argc, char **argv) {
     printf(1, "Parent Process Tickets: %d\n", gettickets());
   } else {
     printf(1, "Child - p: %d\n", p);
-    settickets(123);
+    settickets(100);
   }
   exit_child(p);
   // printf(1, "Rand: %d\n", rand());

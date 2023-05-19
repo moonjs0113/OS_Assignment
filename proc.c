@@ -346,16 +346,26 @@ scheduler(void)
         // }
         continue;
       }
-
-      if (p->tickets != 10 && p->tickets != randNum) {
-        randNum = rand();
-        cprintf("scheduler %d\n", p->tickets);
-        continue;
+      // 테스트 코드일때만 티켓값을 더함
+      if (p->tickets > 99) { 
+        ptable.totalTickets += p->tickets;
+        if (ptable.totalTickets < randNum) {
+          continue;
+        } else {
+          cprintf("p(pid: %d)\n", p->pid);
+          cprintf("ptable.totalTickets: %d\n", ptable.totalTickets);
+          cprintf("randNum: %d\n", randNum);
+        }
       }
+      // if (p->tickets != 10 && p->tickets != randNum) {
+        
+      //   cprintf("scheduler %d\n", p->tickets);
+      //   continue;
+      // }
       // if (p->tickets > 10) {
       //   cprintf("p(pid: %d)->state == RUNNABLE\n", p->pid);
       // }
-      ptable.totalTickets += p->tickets;
+      
       // cprintf("TotalTickets %d\n", ptable.totalTickets);
       // Switch to chosen process.  It is the process's job
       // to release ptable.lock and then reacquire it
