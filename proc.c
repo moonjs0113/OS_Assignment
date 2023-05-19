@@ -354,7 +354,9 @@ scheduler(void)
           cprintf("ptable.totalTickets: %d\n", ptable.totalTickets);
           continue;
         } else {
+          cprintf("winner! totalTickets: %d, randNum: %d\n", ptable.totalTickets, randNum);
           ptable.totalTickets = 0;
+          randNum = rand();
           cprintf("winner p(pid: %d)\n", p->pid);
         }
         //  else {
