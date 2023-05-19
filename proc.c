@@ -6,7 +6,7 @@
 #include "x86.h"
 #include "proc.h"
 #include "spinlock.h"
-#include "rand.h"
+#include "rand.c"
 
 struct {
   struct spinlock lock;
@@ -339,6 +339,10 @@ scheduler(void)
       if(p->state != RUNNABLE)
         continue;
       
+      if (p->tickets > 10) {
+        cprintf("Rand(): %d\n", rand());
+      }
+
       ptable.totalTickets += p->tickets;
       // cprintf("TotalTickets %d\n", ptable.totalTickets);
       // Switch to chosen process.  It is the process's job
