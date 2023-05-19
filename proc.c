@@ -331,7 +331,6 @@ scheduler(void)
   cprintf("Call Scheduler\n");
   for(;;){
     // Enable interrupts on this processor.
-    cprintf("Enable interrupts on this processor\n");
     sti();
     
     // Loop over process table looking for process to run.
