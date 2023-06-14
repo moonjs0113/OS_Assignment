@@ -112,16 +112,16 @@ sys_clone(void) {
     cprintf("arg2 Fail\n");
     return -1;
   }
-  cprintf("Argument Success\n");
+  cprintf("Argument Success %s\n", function);
 
   function(arg1, arg2);
 
-  
-  return 1;
+  cprintf("Return clone()\n");
+  return 0;
 }
 
 int
 sys_join(void) {
   cprintf("Call join()\n");
-  return 1;
+  return 0;
 }
