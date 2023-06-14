@@ -89,3 +89,15 @@ sys_uptime(void)
   release(&tickslock);
   return xticks;
 }
+
+int
+sys_clone(void) {
+  cprintf("Call clone()\n");
+  return 1;
+}
+
+int
+sys_join(void) {
+  cprintf("Call join()\n");
+  return 1;
+}
