@@ -11,7 +11,7 @@ void function(void *arg) {
 
 int
 main(int argc, char **argv) {
-  int a = 0
+  int a = 0;
   printf(1, "hello\n");
 
   clone((void*)&a, (void*)&a, (void*)&a, (void*)&a);
