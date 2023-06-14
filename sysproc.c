@@ -106,13 +106,13 @@ sys_clone(void) {
     cprintf("arg1 Fail\n");
     return -1;
   }
-    return -1;
+    
   if(argptr(2, (char **)&arg2, sizeof(void*)) < 0) {
     cprintf("arg2 Fail\n");
     return -1;
   }
 
-  &function(arg1, arg2);
+  function(arg1, arg2);
 
   cprintf("Call clone()\n");
   return 1;
