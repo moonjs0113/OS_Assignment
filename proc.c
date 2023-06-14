@@ -6,10 +6,12 @@
 #include "x86.h"
 #include "proc.h"
 #include "spinlock.h"
+#include "rand.c"
 
 struct {
   struct spinlock lock;
   struct proc proc[NPROC];
+  int totalTickets;
 } ptable;
 
 static struct proc *initproc;
@@ -111,7 +113,8 @@ found:
   p->context = (struct context*)sp;
   memset(p->context, 0, sizeof *p->context);
   p->context->eip = (uint)forkret;
-
+  p->tickets = 10;
+  
   return p;
 }
 
@@ -325,17 +328,32 @@ scheduler(void)
   struct proc *p;
   struct cpu *c = mycpu();
   c->proc = 0;
-  
+  int randNum = rand();
+  cprintf("Call Scheduler %d\n", ptable.totalTickets);
   for(;;){
     // Enable interrupts on this processor.
     sti();
-
+    
     // Loop over process table looking for process to run.
     acquire(&ptable.lock);
     for(p = ptable.proc; p < &ptable.proc[NPROC]; p++){
-      if(p->state != RUNNABLE)
+      if(p->state != RUNNABLE) {
         continue;
+      }
 
+      // 테스트 코드일때만 티켓값을 더함
+      if (p->pid > 2) { 
+        // cprintf("p(pid: %d)\n", p->pid);
+        if (ptable.totalTickets < randNum) {
+          ptable.totalTickets += p->tickets;
+          continue;
+        }
+        // cprintf("winner! totalTickets: %d, randNum: %d\n", ptable.totalTickets, randNum);
+        ptable.totalTickets = 0;
+        randNum = rand();
+        // cprintf("winner! p(pid: %d)\n", p->pid);  
+      }
+      // cprintf("TotalTickets %d\n", ptable.totalTickets);
       // Switch to chosen process.  It is the process's job
       // to release ptable.lock and then reacquire it
       // before jumping back to us.

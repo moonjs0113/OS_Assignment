@@ -21,3 +21,5 @@
 #define SYS_mkdir  20
 #define SYS_close  21
 #define SYS_hello  22
+#define SYS_gettickets  23
+#define SYS_settickets  24

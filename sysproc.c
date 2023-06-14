@@ -101,3 +101,19 @@ sys_hello(void)
   cprintf("Hello %s\n", path);
   return 0;
 }
+
+int
+sys_gettickets(void)
+{
+  return myproc()->tickets;
+}
+
+int
+sys_settickets(void)
+{
+  int tickets;
+  if(argint(0, &tickets) < 0)
+    return -1;
+  myproc()->tickets = tickets;
+  return myproc()->tickets;
+}
