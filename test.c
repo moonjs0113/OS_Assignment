@@ -14,7 +14,7 @@ int
 main(int argc, char **argv) {
   int a = 1;
   printf(1, "Test Main\n");
-  int i = thread_create(function, (void*)&a, (void*)&a);
+  thread_create(function, (void*)&a, (void*)&a);
   thread_join();
   exit();
 }
