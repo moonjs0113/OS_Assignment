@@ -92,9 +92,9 @@ sys_uptime(void)
 
 int
 sys_clone(void) {
-  void *function(void *,void *);
-  void *arg1;
-  void *arg2;
+  void (*function)(void *,void *) = 0;
+  void *arg1 = 0;
+  void *arg2 = 0;
 
   if(argptr(0, (char **)&function, sizeof(void*)) < 0) {
     cprintf("function Fail\n");
