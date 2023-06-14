@@ -1,6 +1,3 @@
-#include "types.h"
-#include "stat.h"
-#include "user.h"
 // int clone(void*, void*, void*, void*);
 // int join(void**);
 
