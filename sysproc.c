@@ -92,6 +92,8 @@ sys_uptime(void)
 
 int
 sys_clone(void) {
+  cprintf("Call clone()\n");
+  
   void (*function)(void *,void *) = 0;
   void *arg1 = 0;
   void *arg2 = 0;
@@ -115,7 +117,7 @@ sys_clone(void) {
 
   function(arg1, arg2);
 
-  cprintf("Call clone()\n");
+  
   return 1;
 }
 

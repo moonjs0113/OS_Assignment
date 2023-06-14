@@ -1,6 +1,9 @@
+#include "types.h"
+#include "stat.h"
+#include "user.h"
 #include "thread.c"
 
-void *function(void *arg1, void *arg2) {
+void function(void *arg1, void *arg2) {
   printf(1, "Call function\n");
   // return arg1;
 }
