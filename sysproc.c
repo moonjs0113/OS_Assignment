@@ -96,12 +96,21 @@ sys_clone(void) {
   void *arg1;
   void *arg2;
 
-  if(argptr(0, (char **)&function, sizeof(void*)) < 0)
+  if(argptr(0, (char **)&function, sizeof(void*)) < 0) {
+    cprintf("function Fail\n");
     return -1;
-  if(argptr(1, (char **)&arg1, sizeof(void*)) < 0)
+  }
+
+    return -1; 
+  if(argptr(1, (char **)&arg1, sizeof(void*)) < 0) {
+    cprintf("arg1 Fail\n");
     return -1;
-  if(argptr(2, (char **)&arg2, sizeof(void*)) < 0)
+  }
     return -1;
+  if(argptr(2, (char **)&arg2, sizeof(void*)) < 0) {
+    cprintf("arg2 Fail\n");
+    return -1;
+  }
 
   function(arg1, arg2);
 
