@@ -130,7 +130,6 @@ static int (*syscalls[])(void) = {
 [SYS_close]   sys_close,
 [SYS_clone]   sys_clone,
 [SYS_join]    sys_join,
-};
 
 void
 syscall(void)
