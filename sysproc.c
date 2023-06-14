@@ -112,9 +112,9 @@ sys_clone(void) {
     cprintf("arg2 Fail\n");
     return -1;
   }
-  cprintf("Argument Success %s\n", *function);
+  cprintf("Argument Success %s\n", function);
 
-  *function(arg1, arg2);
+  function(arg1, arg2);
 
   cprintf("Return clone()\n");
   return 0;
