@@ -11,8 +11,10 @@ void function(void *arg) {
 
 int
 main(int argc, char **argv) {
+  int a = 0
   printf(1, "hello\n");
-  clone(NULL, NULL, NULL, NULL);
-  join(NULL);
+
+  clone((void*)&a, (void*)&a, (void*)&a, (void*)&a);
+  join((void*)&a);
   exit();
 }
