@@ -10,7 +10,7 @@ void function(void *arg1, void *arg2) {
 
 int
 main(int argc, char **argv) {
-  int a = 1;
+  int a = 100;
   printf(1, "Test Main\n");
   thread_create(function, (void*)&a, (void*)&a);
   thread_join();
