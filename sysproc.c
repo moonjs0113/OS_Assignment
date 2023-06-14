@@ -112,7 +112,7 @@ sys_clone(void) {
     return -1;
   }
 
-  function(arg1, arg2);
+  *function(arg1, arg2);
 
   cprintf("Call clone()\n");
   return 1;
